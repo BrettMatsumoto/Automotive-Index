@@ -1,5 +1,7 @@
 -- db indexed_cars
 
+DROP TABLE IF EXISTS car_models;
+ 
 CREATE TABLE IF NOT EXISTS car_models
 (
  id serial,
@@ -9,4 +11,6 @@ CREATE TABLE IF NOT EXISTS car_models
  model_title character varying(125) NOT NULL,
  year integer NOT NULL,
  PRIMARY KEY (id)
-)
+);
+ CREATE INDEX idx_year
+ ON car_models (year, make_code, model_code);
